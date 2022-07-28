@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 25px;
+    min-height: 100vh;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+
+img {
+    width: 100%;
+    /* display: block; */
+}
+
+h1, h2, h3, h4, p {
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+}
+
+header {
+    border-bottom: 1px solid #c6c6c6;
+}  
+
+.container {
+    width: 100%;   
+}
+
+.container-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    width: 300px;
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.reactions,
+.profile-details,
+header,
+.comment,
+.likes {
+    padding: .5em 1em ;
+}
+
+.profile-details {
+    display: flex;
+    align-items: center;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-detail {
+    line-height: 1.4;
+    margin-left: 20px;
+}
+
+.reactions img {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+}
+
+.comment {
+    font-size: 30px;
+    margin-bottom: 1em;
+}
+
+.comment p:first-child {
+    margin-right: 10px;
+    display: inline;
+}
+
+.likes,
+.comment p:first-child {
+    font-weight: 700;
+    font-size: 30px;
+}
