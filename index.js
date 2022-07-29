@@ -1,6 +1,7 @@
 'use strict'
 
 let mainContainer = document.querySelector('main .container')
+let lastClick = 0
 
 const posts = [
     {
@@ -72,6 +73,7 @@ posts.forEach(element => {
 mainContainer.innerHTML = htmlContents
 
 mainContainer.addEventListener('click', e => {
+    e.preventDefault()
     // console.log(e.target.className)
     
     if(e.target.classList.contains('like')) {
@@ -82,21 +84,43 @@ mainContainer.addEventListener('click', e => {
         } else {
             e.target.style.color = ''
             e.target.parentElement.nextElementSibling.lastElementChild.children[0].innerText--
-        }
-
-        
-    }
- 
+        }    
+    } 
     
 })
 
-mainContainer.addEventListener('dblclick', e => {
-    console.log(e.target)
+mainContainer.addEventListener('touchstart', (e) => {
+    e.preventDefault()
+
     if(e.target.className === 'post-img') {
-        // e.target.addEventListener('dblclick', (e) => {
+        
+        // e.target.addEventListener('touchstart', () => {
+        // e.preventDefault()
+        
+        let date = new Date();
+        let time = date.getTime();
+        const time_between_taps = 200; // 200ms
+        const timeDiff = time - lastClick
+
+        // console.log(time, time_between_taps, timeDiff)
+
+        if ( timeDiff < time_between_taps) {
+            console.log('True')
+            console.log(e.target.nextElementSibling.nextElementSibling.children[0].children[0].innerText)
+            if(e.target.nextElementSibling.children[0].style.color !== 'red') {
+
+                e.target.nextElementSibling.nextElementSibling.children[0].children[0].innerText++
+                e.target.nextElementSibling.children[0].style.color = 'red'
             
-            document.querySelector('.liked').textContent++
-            document.querySelector('.like').style.color = 'red'
-        // }) 
+            } else {
+                e.target.nextElementSibling.nextElementSibling.children[0].children[0].innerText = e.target.nextElementSibling.nextElementSibling.children[0].children[0].innerText++
+                // document.querySelector('.like').style.color = ''
+            }
+            
+        }
+
+        lastClick = time;
+        
     }
+    
 })
