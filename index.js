@@ -73,7 +73,7 @@ posts.forEach(element => {
 mainContainer.innerHTML = htmlContents
 
 mainContainer.addEventListener('click', e => {
-    e.preventDefault()
+    // e.preventDefault()
     // console.log(e.target.className)
     
     if(e.target.classList.contains('like')) {
@@ -90,7 +90,7 @@ mainContainer.addEventListener('click', e => {
 })
 
 mainContainer.addEventListener('touchstart', (e) => {
-    e.preventDefault()
+    // e.preventDefault()
 
     if(e.target.className === 'post-img') {
         
