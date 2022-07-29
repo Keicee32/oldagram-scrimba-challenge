@@ -75,15 +75,28 @@ mainContainer.addEventListener('click', e => {
     // console.log(e.target.className)
     
     if(e.target.classList.contains('like')) {
-        e.target.parentElement.nextElementSibling.lastElementChild.children[0].innerText++
-        e.target.style.color = 'red'
+        
+        if(e.target.style.color !== 'red') {  
+            e.target.style.color = 'red'
+            e.target.parentElement.nextElementSibling.lastElementChild.children[0].innerText++
+        } else {
+            e.target.style.color = ''
+            e.target.parentElement.nextElementSibling.lastElementChild.children[0].innerText--
+        }
+
+        
     }
  
+    
 })
 
-mainContainer.addEventListener('dblclick', (e) => {
+mainContainer.addEventListener('dblclick', e => {
+    console.log(e.target)
     if(e.target.className === 'post-img') {
-        document.querySelector('.liked').textContent++
-        document.querySelector('.like').style.color = 'red'
+        // e.target.addEventListener('dblclick', (e) => {
+            
+            document.querySelector('.liked').textContent++
+            document.querySelector('.like').style.color = 'red'
+        // }) 
     }
 })
