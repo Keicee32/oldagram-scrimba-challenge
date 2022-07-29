@@ -46,24 +46,44 @@ posts.forEach(element => {
             </div>
         </div>
 
-        <img src=${element.post} />
+        <img src=${element.post} class="post-img"/>
 
         <div class="reactions">
-            <img src="images/icon-heart.png" />
+            <!-- <img src="images/icon-heart.png" class="like"/> -->
+            <i class="fa-solid fa-heart like"></i>
             <img src="images/icon-comment.png" />
             <img src="images/icon-dm.png" />
         </div>
 
         <div class="likes">
-            <p>${element.likes} likes</p>
+            <p>
+                <span class="liked">${element.likes}</span> likes
+            </p>
         </div>
 
         <div class="comment">
             <p>${element.username}</p>
             <span>${element.comment}</span>
         </div>
-    `
-    console.log(element.avatar)
+
+        `
 })
 
 mainContainer.innerHTML = htmlContents
+
+mainContainer.addEventListener('click', e => {
+    // console.log(e.target.className)
+    
+    if(e.target.classList.contains('like')) {
+        e.target.parentElement.nextElementSibling.lastElementChild.children[0].innerText++
+        e.target.style.color = 'red'
+    }
+ 
+})
+
+mainContainer.addEventListener('dblclick', (e) => {
+    if(e.target.className === 'post-img') {
+        document.querySelector('.liked').textContent++
+        document.querySelector('.like').style.color = 'red'
+    }
+})

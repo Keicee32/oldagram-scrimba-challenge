@@ -92,3 +92,17 @@ header,
     font-weight: 700;
     font-size: 30px;
 }
+
+.reactions{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.reactions .like {
+    font-size: 50px;
+}
+
+.like:hover {
+    opacity: 0.7;
+}
