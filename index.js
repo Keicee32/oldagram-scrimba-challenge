@@ -92,6 +92,7 @@ mainContainer.addEventListener('click', e => {
     if(e.target.className === 'post-comment') {
         if(e.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.classList.contains('hide')) {
             e.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.classList.remove('hide')
+            e.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0].focus()
         } else {
             e.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.classList.add('hide')
         }
