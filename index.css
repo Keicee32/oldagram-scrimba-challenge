@@ -52,7 +52,8 @@ header {
 .profile-details,
 header,
 .comment,
-.likes {
+.likes,
+.input {
     padding: .5em 1em ;
 }
 
@@ -84,13 +85,13 @@ header,
     margin-bottom: 1em;
 }
 
-.comment p:first-child {
+.comment p {
     margin-right: 10px;
     display: inline;
 }
 
 .likes,
-.comment p:first-child {
+.comment p {
     font-weight: 700;
     font-size: 30px;
 }
@@ -101,7 +102,22 @@ header,
     /* justify-content: center; */
 }
 
-.reactions .like {
+.like {
     font-size: 50px;
 }
 
+.posts-img {
+    object-fit: cover;
+}
+
+.hide {
+    display: none;
+}
+
+.input {
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    border: none;
+    border-bottom: 2px solid #c6c6c6;
+}
