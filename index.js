@@ -36,18 +36,21 @@ const posts = [
 let htmlContents = ''
 
 posts.forEach(element => {
+
+    const {name, avatar, location, post, likes, username, comment} = element
+
     htmlContents += `
         <div class='profile-details'>
             <div class='profile-img'>
-                <img src=${element.avatar} alt='Avatar of ${element.name}' class='profile-picture' />
+                <img src=${avatar} alt='Avatar of ${name}' class='profile-picture' />
             </div>
             <div class="profile-detail">
-                <h2>${element.name}</h2>
-                <p>${element.location}</p>
+                <h2>${name}</h2>
+                <p>${location}</p>
             </div>
         </div>
 
-        <img src=${element.post} class="post-img"/>
+        <img src=${post} class="post-img"/>
 
         <div class="reactions">
             <!-- <img src="images/icon-heart.png" class="like"/> -->
@@ -58,13 +61,13 @@ posts.forEach(element => {
 
         <div class="likes">
             <p>
-                <span class="liked">${element.likes}</span> likes
+                <span class="liked">${likes}</span> likes
             </p>
         </div>
 
         <div class="comment">
-            <p>${element.username}</p>
-            <span>${element.comment}</span>
+            <p>${username}</p>
+            <span>${comment}</span>
         </div>
 
         <div class="hide comments">
