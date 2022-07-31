@@ -33,13 +33,12 @@ const posts = [
     }
 ]
 
-let htmlContents = ''
 
-posts.forEach(element => {
+let htmlContents = posts.map(element => {
+    
+    const {name, username, location, avatar, post, likes, comment} = element
 
-    const {name, avatar, location, post, likes, username, comment} = element
-
-    htmlContents += `
+    return `
         <div class='profile-details'>
             <div class='profile-img'>
                 <img src=${avatar} alt='Avatar of ${name}' class='profile-picture' />
@@ -75,10 +74,11 @@ posts.forEach(element => {
         </div>
 
         `
-})
+}).join('')
 
 mainContainer.innerHTML = htmlContents
 
+ 
 mainContainer.addEventListener('click', e => {
     
     if(e.target.classList.contains('like')) {
