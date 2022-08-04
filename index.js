@@ -52,7 +52,6 @@ let htmlContents = posts.map(element => {
         <img src=${post} class="post-img"/>
 
         <div class="reactions">
-            <!-- <img src="images/icon-heart.png" class="like"/> -->
             <i class="fa-solid fa-heart like"></i>
             <img src="images/icon-comment.png" class="post-comment"/>
             <img src="images/icon-dm.png" />
@@ -81,25 +80,23 @@ mainContainer.innerHTML = htmlContents
  
 mainContainer.addEventListener('click', e => {
     
-    if(e.target.classList.contains('like')) {
-        
-        if(e.target.style.color !== 'red') {  
-            e.target.style.color = 'red'
-            e.target.parentElement.nextElementSibling.lastElementChild.children[0].innerText++
-        } else {
-            e.target.style.color = ''
-            e.target.parentElement.nextElementSibling.lastElementChild.children[0].innerText--
-        }    
-    } 
+    if(e.target.classList.contains('like') && e.target.style.color !== 'red') {         
+        e.target.style.color = 'red'
+        e.target.parentElement.nextElementSibling.children[0].children[0].innerText++
+        // e.target.parentElement.nextElementSibling.lastElementChild.children[0].innerText++
+    } else {
+        e.target.style.color = ''
+        e.target.parentElement.nextElementSibling.children[0].children[0].innerText--
+        // e.target.parentElement.nextElementSibling.lastElementChild.children[0].innerText--
+    }    
 
-    if(e.target.className === 'post-comment') {
-        if(e.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.classList.contains('hide')) {
+    if(e.target.className === 'post-comment' && e.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.classList.contains('hide')) {
             e.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.classList.remove('hide')
             e.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0].focus()
-        } else {
-            e.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.classList.add('hide')
-        }
+    } else {
+        e.target.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.classList.add('hide')
     }
+
     
 })
 
