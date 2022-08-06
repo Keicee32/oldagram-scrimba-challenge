@@ -1,54 +1,7 @@
 'use strict'
 
-import {posts} from './data.js'
-
 let mainContainer = document.querySelector('main .container')
 let lastClick = 0
-
-
-let htmlContents = posts.map(element => {
-    
-    const {name, username, location, avatar, post, likes, comment} = element
-
-    return `
-        <div class='profile-details'>
-            <div class='profile-img'>
-                <img src=${avatar} alt='Avatar of ${name}' class='profile-picture' />
-            </div>
-            <div class="profile-detail">
-                <h2>${name}</h2>
-                <p>${location}</p>
-            </div>
-        </div>
-
-        <img src=${post} class="post-img"/>
-
-        <div class="reactions">
-            <i class="fa-solid fa-heart like"></i>
-            <img src="images/icon-comment.png" class="post-comment"/>
-            <img src="images/icon-dm.png" />
-        </div>
-
-        <div class="likes">
-            <p>
-                <span class="liked">${likes}</span> likes
-            </p>
-        </div>
-
-        <div class="comment">
-            <p>${username}</p>
-            <span>${comment}</span>
-        </div>
-
-        <div class="hide comments">
-            <input type="text" name="comment" class="input" placeholder="Enter comment here"/>
-        </div>
-
-        `
-}).join('')
-
-mainContainer.innerHTML = htmlContents
-
  
 mainContainer.addEventListener('click', e => {
     
@@ -110,7 +63,7 @@ mainContainer.addEventListener('keypress', (e) => {
     if(e.keyCode === 13 && e.target.value !== '') {
         p = `<p>Mr X </p>`
         span = `<span>${e.target.value.trim()}</span>`
-        e.target.parentElement.previousElementSibling.innerHTML += `<br>` + p + span
+        e.target.parentElement.previousElementSibling.innerHTML += `<br> ${p} ${span}`
         e.target.value = ''
         e.target.parentElement.classList.add('hide')
     } else if(e.target.value === '' && e.keyCode === 13) {

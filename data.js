@@ -27,5 +27,4 @@ const posts = [
         likes: 152
     }
 ]
-
 export {posts}
